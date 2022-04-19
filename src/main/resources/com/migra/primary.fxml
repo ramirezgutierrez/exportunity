@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="829.0" prefWidth="1035.0" spacing="20.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.migra.PrimaryController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <children>
+      <BorderPane prefHeight="501.0" prefWidth="995.0">
+         <top>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: eeeeee;" BorderPane.alignment="CENTER">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <ImageView fitHeight="91.0" fitWidth="347.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/LogoMigra.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: eeeeee;" BorderPane.alignment="CENTER">
+               <children>
+                  <TabPane fx:id="tabPane" prefHeight="303.0" prefWidth="893.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab closable="false" onSelectionChanged="#cambiaNombreArchivo" text="Exportar Cálculos">
+                           <content>
+                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <TextField fx:id="cuadroTv" />
+                                    <Button fx:id="addButton" mnemonicParsing="false" onAction="#pasaElTexto" text="Añadir" />
+                                    <TextArea fx:id="cuadroList" prefHeight="145.0" prefWidth="200.0" />
+                                 
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" top="10.0" />
+                                 </padding>
+                              </HBox>
+                           </content>
+                      </Tab>
+                      <Tab onSelectionChanged="#cambiaNombreArchivo" text="Variables que faltan en excel">
+                           <content>
+                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <TextField fx:id="cuadroTv2" />
+                                    <Button fx:id="addButton1" mnemonicParsing="false" onAction="#pasaElTexto" text="Añadir" />
+                                    <TextArea fx:id="cuadroList2" prefHeight="96.0" prefWidth="200.0" />
+                                    <Label text="Word de Inicio:" />
+                                    <TextField fx:id="wordTf" prefHeight="25.0" prefWidth="36.0" />
+                                    <Label text="Bit de inicio:" />
+                                    <TextField fx:id="bitTf" prefHeight="25.0" prefWidth="38.0" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" top="10.0" />
+                                 </padding>
+                              </HBox>
+                           </content>
+                      </Tab>
+                        <Tab onSelectionChanged="#cambiaNombreArchivo" text="Funcion Escritura SCADA">
+                           <content>
+                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <TextField fx:id="cuadroTv3" />
+                                    <Button fx:id="addButton11" mnemonicParsing="false" onAction="#pasaElTexto" text="Añadir" />
+                                    <TextArea fx:id="cuadroList3" prefHeight="145.0" prefWidth="200.0" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" top="10.0" />
+                                 </padding>
+                              </HBox>
+                           </content>
+                        </Tab>
+                        <Tab onSelectionChanged="#cambiaNombreArchivo" text="Turnos">
+                           <content>
+                              <VBox alignment="TOP_CENTER" prefHeight="262.0" prefWidth="895.0">
+                                 <children>
+                                    <GridPane>
+                                      <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="Salida" />
+                                          <Label text="Ip" GridPane.columnIndex="1" />
+                                          <Label text="Turno" GridPane.columnIndex="2" />
+                                          <Label text="Nombre" GridPane.columnIndex="3" />
+                                          <TextField fx:id="salidaTf" GridPane.rowIndex="1" />
+                                          <TextField fx:id="ipTf" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField fx:id="turnoTf" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <TextField fx:id="nombreTf" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                    <Button mnemonicParsing="false" onAction="#pasaElTexto" text="Agregar" />
+                                    <TextArea fx:id="cuadroList4" prefHeight="200.0" prefWidth="200.0" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </VBox>
+         </center>
+         <bottom>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="100.0" prefWidth="425.0" />
+               </children>
+            </HBox>
+         </bottom>
+         <right>
+            <VBox alignment="TOP_CENTER" prefHeight="295.0" prefWidth="156.0" spacing="10.0" BorderPane.alignment="CENTER">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <BorderPane.margin>
+                  <Insets top="10.0" />
+               </BorderPane.margin>
+               <padding>
+                  <Insets left="5.0" right="5.0" top="10.0" />
+               </padding>
+               <children>
+                  <Label text="Nombre del Archivo" />
+                  <TextField fx:id="nombreArchivo" prefHeight="25.0" prefWidth="115.0" text="Calculos.txt" />
+                  <Button mnemonicParsing="false" onAction="#ConvierteTxt" text="Generar" />
+               </children>
+            </VBox>
+         </right>
+      </BorderPane>
+   </children>
+</VBox>
