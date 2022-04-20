@@ -5,44 +5,44 @@ import java.util.List;
 
 public class ExportTxtCalculo extends Messages{
     static String funcionCalculoVtn(String salida){
-         String comadoExportacion=salida+"_Vtn (PV :="+salida+"_Tension_tn,\n"
-                +"  RST := "+salida+"_RST_VAL,\n"
-                +"  MAX => Aux_real,\n"
-                +"  MED => Aux_real,\n"
-                +"  MIN => "+salida+".Vtn_min);\n";  
+         String comadoExportacion=salida+"_Vtn (PV :="+salida+"_Tension_tn,\r\n"
+                +"  RST := "+salida+"_RST_VAL,\r\r\n"
+                +"  MAX => Aux_real,\r\n"
+                +"  MED => Aux_real,\r\n"
+                +"  MIN => "+salida+".Vtn_min);\r\n";  
         return comadoExportacion;
     }
 
     static String funcionCalculoVsn(String salida){
        
       
-        String  comadoExportacion=salida+"_Vsn (PV :="+salida+"_Tension_sn,\n"
-                +"  RST := "+salida+"_RST_VAL,\n"
-                +"  MAX => Aux_real,\n"
-                +"  MED => Aux_real,\n"
-                +"  MIN => "+salida+".Vsn_min);\n";
+        String  comadoExportacion=salida+"_Vsn (PV :="+salida+"_Tension_sn,\r\n"
+                +"  RST := "+salida+"_RST_VAL,\r\n"
+                +"  MAX => Aux_real,\r\n"
+                +"  MED => Aux_real,\r\n"
+                +"  MIN => "+salida+".Vsn_min);\r\n";
 
         return comadoExportacion;
     }
     static String funcionCalculoVrn(String salida){
        
       
-        String  comadoExportacion=salida+"_Vrn (PV :="+salida+"_Tension_rn,\n"
-                +"  RST := "+salida+"_RST_VAL,\n"
-                +"  MAX => Aux_real,\n"
-                +"  MED => Aux_real,\n"
-                +"  MIN => "+salida+".Vrn_min);\n";
+        String  comadoExportacion=salida+"_Vrn (PV :="+salida+"_Tension_rn,\r\n"
+                +"  RST := "+salida+"_RST_VAL,\r\n"
+                +"  MAX => Aux_real,\r\n"
+                +"  MED => Aux_real,\r\n"
+                +"  MIN => "+salida+".Vrn_min);\r\n";
 
         return comadoExportacion;
     }
     static String funcionCalculoTHDVtr(String salida){
        
       
-        String  comadoExportacion=salida+"_THDVtr (PV :="+salida+"_THD_V_tr,\n"
-                +"  RST := "+salida+"_RST_VAL,\n"
-                +"  MAX => Aux_real,\n"
-                +"  MED => "+salida+".THD_V_tr_med,\n"
-                +"  MIN => Aux_real);\n";
+        String  comadoExportacion=salida+"_THDVtr (PV :="+salida+"_THD_V_tr,\r\n"
+                +"  RST := "+salida+"_RST_VAL,\r\n"
+                +"  MAX => Aux_real,\r\n"
+                +"  MED => "+salida+".THD_V_tr_med,\r\n"
+                +"  MIN => Aux_real);\r\n";
 
         return comadoExportacion;
     }
@@ -50,11 +50,11 @@ public class ExportTxtCalculo extends Messages{
     static String funcionCalculoTHDVst(String salida){
        
       
-        String  comadoExportacion=salida+"_THDVst (PV :="+salida+"_THD_V_st,\n"
-                +"  RST := "+salida+"_RST_VAL,\n"
-                +"  MAX => Aux_real,\n"
-                +"  MED => "+salida+".THD_V_st_med,\n"
-                +"  MIN => Aux_real);\n";
+        String  comadoExportacion=salida+"_THDVst (PV :="+salida+"_THD_V_st,\r\n"
+                +"  RST := "+salida+"_RST_VAL,\r\n"
+                +"  MAX => Aux_real,\r\n"
+                +"  MED => "+salida+".THD_V_st_med,\r\n"
+                +"  MIN => Aux_real);\r\n";
 
         return comadoExportacion;
     }
@@ -62,33 +62,33 @@ public class ExportTxtCalculo extends Messages{
     static String funcionCalculoTHDVrs(String salida){
        
       
-        String  comadoExportacion=salida+"_THDVrs (PV :="+salida+"_THD_V_rs,\n"
-                +"  RST := "+salida+"_RST_VAL,\n"
-                +"  MAX => Aux_real,\n"
-                +"  MED => "+salida+".THD_V_rs_med,\n"
-                +"  MIN => Aux_real);\n";
+        String  comadoExportacion=salida+"_THDVrs (PV :="+salida+"_THD_V_rs,\r\n"
+                +"  RST := "+salida+"_RST_VAL,\r\n"
+                +"  MAX => Aux_real,\r\n"
+                +"  MED => "+salida+".THD_V_rs_med,\r\n"
+                +"  MIN => Aux_real);\r\n";
 
         return comadoExportacion;
     }
     static String funcionCalculoTHDIt(String salida){
        
       
-        String  comadoExportacion=salida+"_THDIt (PV :="+salida+"_THD_I_t,\n"
-                +"  RST := "+salida+"_RST_VAL,\n"
-                +"  MAX => Aux_real,\n"
-                +"  MED => "+salida+".THD_I_t_med,\n"
-                +"  MIN => Aux_real);\n";
+        String  comadoExportacion=salida+"_THDIt (PV :="+salida+"_THD_I_t,\r\n"
+                +"  RST := "+salida+"_RST_VAL,\r\n"
+                +"  MAX => Aux_real,\r\n"
+                +"  MED => "+salida+".THD_I_t_med,\r\n"
+                +"  MIN => Aux_real);\r\n";
 
         return comadoExportacion;
     }
     static String funcionCalculoTHDIs(String salida){
        
       
-        String  comadoExportacion=salida+"_THDIs (PV :="+salida+"_THD_I_s,\n"
-                +"  RST := "+salida+"_RST_VAL,\n"
-                +"  MAX => Aux_real,\n"
-                +"  MED => "+salida+".THD_I_s_med,\n"
-                +"  MIN => Aux_real);\n";
+        String  comadoExportacion=salida+"_THDIs (PV :="+salida+"_THD_I_s,\r\n"
+                +"  RST := "+salida+"_RST_VAL,\r\n"
+                +"  MAX => Aux_real,\r\n"
+                +"  MED => "+salida+".THD_I_s_med,\r\n"
+                +"  MIN => Aux_real);\r\n";
 
         return comadoExportacion;
     }
@@ -96,33 +96,33 @@ public class ExportTxtCalculo extends Messages{
     static String funcionCalculoTHDIr(String salida){
        
       
-        String  comadoExportacion=salida+"_THDIr (PV :="+salida+"_THD_I_r,\n"
-                +"  RST := "+salida+"_RST_VAL,\n"
-                +"  MAX => Aux_real,\n"
-                +"  MED => "+salida+".THD_I_r_med,\n"
-                +"  MIN => Aux_real);\n";
+        String  comadoExportacion=salida+"_THDIr (PV :="+salida+"_THD_I_r,\r\n"
+                +"  RST := "+salida+"_RST_VAL,\r\n"
+                +"  MAX => Aux_real,\r\n"
+                +"  MED => "+salida+".THD_I_r_med,\r\n"
+                +"  MIN => Aux_real);\r\n";
 
         return comadoExportacion;
     }
     static String funcionCalculoIt(String salida){
        
       
-        String  comadoExportacion=salida+"_It (PV :="+salida+"_Corriente_t,\n"
-                +"  RST := "+salida+"_RST_VAL,\n"
-                +"  MAX => "+salida+".It_max,\n"
-                +"  MED => Aux_real,\n"
-                +"  MIN => Aux_real);\n";
+        String  comadoExportacion=salida+"_It (PV :="+salida+"_Corriente_t,\r\n"
+                +"  RST := "+salida+"_RST_VAL,\r\n"
+                +"  MAX => "+salida+".It_max,\r\n"
+                +"  MED => Aux_real,\r\n"
+                +"  MIN => Aux_real);\r\n";
 
         return comadoExportacion;
     }
     static String funcionCalculoIs(String salida){
        
       
-        String  comadoExportacion=salida+"_Is (PV :="+salida+"_Corriente_s,\n"
-                +"  RST := "+salida+"_RST_VAL,\n"
-                +"  MAX => "+salida+".Is_max,\n"
-                +"  MED => Aux_real,\n"
-                +"  MIN => Aux_real);\n";
+        String  comadoExportacion=salida+"_Is (PV :="+salida+"_Corriente_s,\r\n"
+                +"  RST := "+salida+"_RST_VAL,\r\n"
+                +"  MAX => "+salida+".Is_max,\r\n"
+                +"  MED => Aux_real,\r\n"
+                +"  MIN => Aux_real);\r\n";
 
         return comadoExportacion;
     }
@@ -130,11 +130,11 @@ public class ExportTxtCalculo extends Messages{
     static String funcionCalculoIn(String salida){
        
       
-        String  comadoExportacion=salida+"_In (PV :="+salida+"_Corriente_n,\n"
-                +"  RST := "+salida+"_RST_VAL,\n"
-                +"  MAX => "+salida+".In_max,\n"
-                +"  MED => Aux_real,\n"
-                +"  MIN => Aux_real);\n";
+        String  comadoExportacion=salida+"_In (PV :="+salida+"_Corriente_n,\r\n"
+                +"  RST := "+salida+"_RST_VAL,\r\n"
+                +"  MAX => "+salida+".In_max,\r\n"
+                +"  MED => Aux_real,\r\n"
+                +"  MIN => Aux_real);\r\n";
 
         return comadoExportacion;
     }
@@ -142,11 +142,11 @@ public class ExportTxtCalculo extends Messages{
     static String funcionCalculoIr(String salida){
        
       
-        String  comadoExportacion=salida+"_Ir (PV :="+salida+"_Corriente_r,\n"
-                +"  RST := "+salida+"_RST_VAL,\n"
-                +"  MAX => "+salida+".Ir_max,\n"
-                +"  MED => Aux_real,\n"
-                +"  MIN => Aux_real);\n";
+        String  comadoExportacion=salida+"_Ir (PV :="+salida+"_Corriente_r,\r\n"
+                +"  RST := "+salida+"_RST_VAL,\r\n"
+                +"  MAX => "+salida+".Ir_max,\r\n"
+                +"  MED => Aux_real,\r\n"
+                +"  MIN => Aux_real);\r\n";
 
         return comadoExportacion;
     }
@@ -154,11 +154,11 @@ public class ExportTxtCalculo extends Messages{
     static String funcionCalculof(String salida){
        
       
-        String  comadoExportacion=salida+"_f (PV :="+salida+"_Frecuencia,\n"
-                +"  RST := "+salida+"_RST_VAL,\n"
-                +"  MAX => Aux_real,\n"
-                +"  MED => Aux_real,\n"
-                +"  MIN => "+salida+".f_min);\n";
+        String  comadoExportacion=salida+"_f (PV :="+salida+"_Frecuencia,\r\n"
+                +"  RST := "+salida+"_RST_VAL,\r\n"
+                +"  MAX => Aux_real,\r\n"
+                +"  MED => Aux_real,\r\n"
+                +"  MIN => "+salida+".f_min);\r\n";
 
         return comadoExportacion;
     }
@@ -166,11 +166,11 @@ public class ExportTxtCalculo extends Messages{
     static String funcionCalculoCosfi(String salida){
        
       
-        String  comadoExportacion=salida+"_cosfi (PV :="+salida+"_cos_fi,\n"
-                +"  RST := "+salida+"_RST_VAL\n"
-                +"  MAX => "+salida+".cosfi_max,\n"
-                +"  MED => "+salida+".cosfi_med,\n"
-                +"  MIN => "+salida+".cosfi_min);\n";
+        String  comadoExportacion=salida+"_cosfi (PV :="+salida+"_cos_fi,\r\n"
+                +"  RST := "+salida+"_RST_VAL\r\n"
+                +"  MAX => "+salida+".cosfi_max,\r\n"
+                +"  MED => "+salida+".cosfi_med,\r\n"
+                +"  MIN => "+salida+".cosfi_min);\r\n";
 
         return comadoExportacion;
     }
@@ -229,7 +229,7 @@ public class ExportTxtCalculo extends Messages{
             String cabeceraIf="";
             String pieIf="";
             for(String salida:salidasPlc){
-            cabeceraIf="if "+salida+"_Estado_Interruptor or "+salida+"_RST_VAL then\n";
+            cabeceraIf="if "+salida+"_Estado_Interruptor or "+salida+"_RST_VAL then\r\n";
             pw.println(cabeceraIf);
             pw.println(funcionCalculoVtn(salida));
             pw.println(funcionCalculoVsn(salida));
@@ -246,8 +246,8 @@ public class ExportTxtCalculo extends Messages{
             pw.println(funcionCalculoIn(salida));
             pw.println(funcionCalculof(salida));
             pw.println(funcionCalculoCosfi(salida));
-            pieIf=salida+"_RST_VAL := false;\n"
-            +"else "+salida+"_RST_VAL := false;\nend_if;\n";
+            pieIf=salida+"_RST_VAL := false;\r\n"
+            +"else "+salida+"_RST_VAL := false;\r\nend_if;\r\n";
             pw.println(pieIf);
         };
         exito(ruta);

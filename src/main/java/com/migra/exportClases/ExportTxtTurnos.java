@@ -27,16 +27,16 @@ public class ExportTxtTurnos extends Messages{
             String comentario="";
             if(i!=funcion.turno.intValue()){
                 i=funcion.turno.intValue();
-                comentario="\n(*Turno: "+i+"*)\n";
+                comentario="\r\n(*Turno: "+i+"*)\r\n";
                 bandera=true;
             }
 
-            String cadena="IF NOT "+funcion.salida+"_Deshabilitado THEN\n"
-                            +"  "+funcion.nombre+"  (TurnoActual := Turno_Actual,\n"
-                            +"                      TurnoFuncion := "+funcion.turno.intValue()+",\n"
-                            +"                      DirMB := '"+funcion.ip+"',\n"
-                            +"                      Micrologic := "+funcion.salida+");\n"
-                            +"END_IF;\n";
+            String cadena="IF NOT "+funcion.salida+"_Deshabilitado THEN\r\n"
+                            +"  "+funcion.nombre+"  (TurnoActual := Turno_Actual,\r\n"
+                            +"                      TurnoFuncion := "+funcion.turno.intValue()+",\r\n"
+                            +"                      DirMB := '"+funcion.ip+"',\r\n"
+                            +"                      Micrologic := "+funcion.salida+");\r\n"
+                            +"END_IF;\r\n";
 
             if(bandera)listaDeclaracion.add(comentario);
             bandera=false;

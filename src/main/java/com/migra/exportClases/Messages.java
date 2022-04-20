@@ -17,7 +17,7 @@ public class Messages  {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Aviso");
         alert.setHeaderText(null);
-        alert.setContentText("Ha habido algún error en la exportacion en la ruta:"+ruta+"\n\n"+e.getMessage());
+        alert.setContentText("Ha habido algún error en la exportacion en la ruta:"+ruta+"\r\n\r\n"+e.getMessage());
         alert.showAndWait();
        
     }

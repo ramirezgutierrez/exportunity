@@ -102,16 +102,16 @@ public class ExportTxtEscrituraScada extends Messages {
         List<String> listaDeclaracion=new ArrayList<>();
         for(String salida:salidasPlc){
 
-         String cadena=salida+"_Ordenes (EstadoInterruptor := "+salida+"_Estado_Interruptor (*BOOL*),\n"
-                                +"      EstadoDisparo := "+salida+"_Estado_Disparo(*BOOL*),\n"
-                                +"      P1S := %S6(*BOOL*),\n"
-                                +"      OApertura := "+salida+"_Orden_Apertura(*BOOL*),\n"
-                                +"      OCierre := "+salida+"_Orden_Cierre(*BOOL*),\n"
-                                +"      ORearme := "+salida+"_Orden_Rearme(*BOOL*),\n"
-                                +"      FalloOrden := "+salida+"_Fallo_Orden(*BOOL*),\n"
-                                +"      OrdenOK := "+salida+"_Orden_OK(*BOOL*),\n"
-                                +"      Q := "+salida+"(*Micrologic_St*),\n"
-                                +"      RST := "+salida+"_Orden_RST(*BOOL*));\n";
+         String cadena=salida+"_Ordenes (EstadoInterruptor := "+salida+"_Estado_Interruptor (*BOOL*),\r\n"
+                                +"      EstadoDisparo := "+salida+"_Estado_Disparo(*BOOL*),\r\n"
+                                +"      P1S := %S6(*BOOL*),\r\n"
+                                +"      OApertura := "+salida+"_Orden_Apertura(*BOOL*),\r\n"
+                                +"      OCierre := "+salida+"_Orden_Cierre(*BOOL*),\r\n"
+                                +"      ORearme := "+salida+"_Orden_Rearme(*BOOL*),\r\n"
+                                +"      FalloOrden := "+salida+"_Fallo_Orden(*BOOL*),\r\n"
+                                +"      OrdenOK := "+salida+"_Orden_OK(*BOOL*),\r\n"
+                                +"      Q := "+salida+"(*Micrologic_St*),\r\n"
+                                +"      RST := "+salida+"_Orden_RST(*BOOL*));\r\n";
 
          listaDeclaracion.add(cadena);
             

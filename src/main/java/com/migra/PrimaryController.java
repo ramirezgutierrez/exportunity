@@ -2,9 +2,11 @@ package com.migra;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.ResourceBundle;
 import java.util.StringTokenizer;
 
 import com.migra.exportClases.ExportErrorCDesha;
@@ -15,14 +17,16 @@ import com.migra.exportClases.Messages;
 import com.migra.exportClases.MicrologicMB;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.KeyCode;
 import javafx.stage.DirectoryChooser;
 
-public class PrimaryController extends Messages {
+public class PrimaryController extends Messages implements Initializable  {
 
     @FXML
     private TextField nombreArchivo;
@@ -60,7 +64,7 @@ public class PrimaryController extends Messages {
     private void pasaElTexto() throws IOException {
 
         if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Exportar Cálculos")) {
-
+            
             pasaElTextoA(cuadroList, cuadroTv);
 
         } else if (tabPane.getSelectionModel().getSelectedItem().getText().equals("Variables que faltan en excel")) {
@@ -235,5 +239,46 @@ public class PrimaryController extends Messages {
             cuadroList.setText(cadena);
         }
     }
+    private void enviarConEnter(TextField cuadro){
+        cuadro.setFocusTraversable(true);
+        /*cuadro.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if(event.getCode() == KeyCode.ENTER){
+                    pasaElTexto();
+                }
+            }
+        });*/
+        cuadro.setOnKeyPressed(key ->{
+            if(key.getCode()==KeyCode.ENTER){
+                try {
+                    pasaElTexto();
+                    cuadro.setText("");
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+
+
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        enviarConEnter(cuadroTv);
+        enviarConEnter(cuadroTv2);
+        enviarConEnter(cuadroTv3);
+        enviarConEnter(nombreTf);
+        
+    }
+
+        
+      
+    
+
+
+
+
 
 }
