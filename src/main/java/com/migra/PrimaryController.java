@@ -14,7 +14,6 @@ import com.migra.exportClases.ExportTxtTurnos;
 import com.migra.exportClases.Messages;
 import com.migra.exportClases.MicrologicMB;
 
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TabPane;
@@ -201,7 +200,7 @@ public class PrimaryController extends Messages {
     }
 
     private static List<String> generaLista(TextArea cuadroList) {
-        List<String> salidas = new ArrayList();
+        List<String> salidas = new ArrayList<String>();
         StringTokenizer st = new StringTokenizer(cuadroList.getText(), "\n");
 
         while (st.hasMoreTokens()) {

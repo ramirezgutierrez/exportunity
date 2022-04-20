@@ -1,5 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.migra</groupId>
     <artifactId>exportunitypro</artifactId>
@@ -22,10 +22,10 @@
             <version>13</version>
         </dependency>
         <dependency>
-    <groupId>com.gluonhq</groupId>
-    <artifactId>gluonfx-maven-plugin</artifactId>
-    <version>1.0.13</version>
-</dependency>
+            <groupId>com.gluonhq</groupId>
+            <artifactId>gluonfx-maven-plugin</artifactId>
+            <version>1.0.13</version>
+        </dependency>
 
     </dependencies>
     <build>
@@ -42,6 +42,16 @@
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.4</version>
+                <configuration>
+                    <stripDebug>true</stripDebug>
+                    <compress>2</compress>
+                    <noHeaderFiles>true</noHeaderFiles>
+                    <noManPages>true</noManPages>
+                    <launcher>Export Unity Pro</launcher>
+                    <jlinkImageName>exportunity</jlinkImageName>
+                    <jlinkZipName>ExportUnityPro</jlinkZipName>
+                    <mainClass>com.migra.App</mainClass>
+                </configuration>
                 <executions>
                     <execution>
                         <id>default-cli</id>
@@ -61,47 +71,47 @@
                     </execution>
                 </executions>
             </plugin>
-<plugin>
-<!--  Build an executable JAR  -->
-<groupId>org.apache.maven.plugins</groupId>
-<artifactId>maven-jar-plugin</artifactId>
-<configuration>
-<archive>
-<manifest>
-<addClasspath>true</addClasspath>
-<classpathPrefix>lib/</classpathPrefix>
-<mainClass>com.migraApp</mainClass>
-</manifest>
-</archive>
-</configuration>
-</plugin>
-<plugin>
-<artifactId>maven-assembly-plugin</artifactId>
-<version>3.3.0</version>
-<configuration>
-<archive>
-<manifest>
-<mainClass>com.migra.App</mainClass>
-</manifest>
-</archive>
-<descriptorRefs>
-<descriptorRef>jar-with-dependencies</descriptorRef>
-</descriptorRefs>
-</configuration>
-<executions>
-<execution>
-<id>make-assembly</id>
-<!--  this is used for inheritance merges  -->
-<phase>package</phase>
-<!--  bind to the packaging phase  -->
-<goals>
-<goal>single</goal>
-</goals>
-</execution>
-</executions>
-</plugin>
+            <plugin>
+                <!--  Build an executable JAR  -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.migraApp</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.migra.App</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <!--  this is used for inheritance merges  -->
+                        <phase>package</phase>
+                        <!--  bind to the packaging phase  -->
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
         </plugins>
     </build>
-    
+
 </project>
