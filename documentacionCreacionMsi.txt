@@ -1,0 +1,167 @@
+
+1. maven clean para limpiar el proyecto
+2. maven install para instalar las dependencias y plugins
+3. maven clean javafx:jlink para crear el jre personalizado (jlink se puede configurar en el pom o en linea de comandos https://github.com/openjfx/javafx-maven-plugin para mas info)
+4. jpackage para crear el msi/exe 
+jpackage.exe --type msi --input . --dest - --main-jar .\target\exportunitypro-1.0.jar --name "Export UnityPro" --main-class com.migra.App --module-path "C:\Users\jaramirez\Desktop\Dev\Java\javafx-sdk-17.0.2\lib"  --win-shortcut --win-menu --runtime-image C:\Users\jaramirez\Desktop\Dev\Java\Projects\exportunitypro\target\ExportUnityPro
+	explicación:
+	--type msi -> tipo de instalador
+	--input . ->directorio
+	--dest - ->directorio de destino del msi
+	--main-jar .\target\exportunitypro-1.0.jar -> donde se encuentra el jar compilado
+	--name "Export UnityPro" -> El nombre de la App
+	--main.class com.migra.App -> El nombre de la clase lanzadora
+	--module-path "C:\Users\jaramirez\Desktop\Dev\Java\javafx-sdk-17.0.2\lib" donde se encuentran las librerias de javafx
+	--win-shortcut -> Acceso directo en el escritorio 
+	--win-menu -> Acceso en el menú de inicio de windows
+	--runtime-image C:\Users\jaramirez\Desktop\Dev\Java\Projects\exportunitypro\target\ExportUnityPro -> la imagen (jre) que hemos creado con maven clean javafx:jlink
+-----------------------
+
+para crear un jre personalizado usar la herramienta maven javafx:jlink
+no olvidar poner en el pom las especificaciones
+
+archivo pon de ejemplo
+-----------------------------
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.migra</groupId>
+    <artifactId>exportunitypro</artifactId>
+    <version>1.0</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>13</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>13</version>
+        </dependency>
+        <dependency>
+            <groupId>com.gluonhq</groupId>
+            <artifactId>gluonfx-maven-plugin</artifactId>
+            <version>1.0.13</version>
+        </dependency>
+
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <release>11</release>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.4</version>
+                <configuration>
+                    <stripDebug>true</stripDebug>
+                    <compress>2</compress>
+                    <noHeaderFiles>true</noHeaderFiles>
+                    <noManPages>true</noManPages>
+                    <launcher>Export Unity Pro</launcher>
+                    <jlinkImageName>exportunity</jlinkImageName>
+                    <jlinkZipName>ExportUnityPro</jlinkZipName>
+                    <mainClass>com.migra.App</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>default-cli</id>
+                        <configuration>
+                            <mainClass>com.migra.App</mainClass>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>debug</id>
+                        <configuration>
+                            <options>
+                                <option>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</option>
+                            </options>
+                            <mainClass>com.migra.App</mainClass>
+                        </configuration>
+
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <!--  Build an executable JAR  -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.migraApp</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.migra.App</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <!--  this is used for inheritance merges  -->
+                        <phase>package</phase>
+                        <!--  bind to the packaging phase  -->
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
+
+--------------------------------------------------
+
+también recordar que en module-info.java se deben llamar a los paquetes para que aparezcan en lib/modules
+
+ejemplo de module-info.java
+
+module com.migra {
+    exports com.migra;
+    requires javafx.controls;
+    requires javafx.fxml;
+    requires transitive javafx.graphics;
+    opens com.migra;
+    opens images;
+    
+}
+
+----------------------------------------------
+con esta instrucción se crea el instalador
+
+jpackage.exe --type msi --input . --dest - --main-jar .\target\exportunitypro-1.0.jar --name "Export UnityPro" --main-class com.migra.App --module-path "C:\Users\jaramirez\Desktop\Dev\Java\javafx-sdk-17.0.2\lib"  --win-shortcut --win-menu --runtime-image C:\Users\jaramirez\Desktop\Dev\Java\Projects\exportunitypro\target\ExportUnityPro
+
+
+
+
+
